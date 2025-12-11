@@ -1,7 +1,10 @@
 import { GoogleGenAI } from "@google/genai";
 import { ToneType } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// For the preview environment, we use process.env directly.
+const apiKey = process.env.API_KEY;
+
+const ai = new GoogleGenAI({ apiKey: apiKey });
 
 export const generateAiMessage = async (tone: ToneType, context: string): Promise<string> => {
   try {
